@@ -1,7 +1,7 @@
 package vn.iotstar.thymeleaf.repository;
 
 import java.util.List;
-import java.util.Locale.Category;
+
 
 
 import org.springframework.data.domain.Page;
@@ -12,7 +12,7 @@ import vn.iotstar.thymeleaf.entity.CategoryEntity;
 
 
 
-public interface CategoryRepository extends JpaRepository<Category, Long> {
+public interface CategoryRepository extends JpaRepository<CategoryEntity, Long> {
 
 	List<CategoryEntity>  findByNameContaining(String name);
 	Page<CategoryEntity> findByNameContaining(String name, Pageable pagaable);

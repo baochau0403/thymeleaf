@@ -1,7 +1,7 @@
 package vn.iotstar.thymeleaf.controller;
 
 import java.util.List;
-import java.util.Locale.Category;
+
 import java.util.Optional;
 
 import org.springframework.beans.BeanUtils;
@@ -18,6 +18,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
 import jakarta.validation.Valid;
+import vn.iotstar.thymeleaf.entity.CategoryEntity;
 import vn.iotstar.thymeleaf.models.CategoryModel;
 import vn.iotstar.thymeleaf.service.CategoryService;
 
@@ -31,7 +32,7 @@ public class CategoryController {
 	
 	@RequestMapping("")
 	public String all(Model model) {
-		List<Category> list = categoryService.findAll();
+		List<CategoryEntity> list = categoryService.findAll();
 		model.addAttribute("list", list);
 		return "admin/category/list";
 	}
@@ -51,7 +52,7 @@ public class CategoryController {
 		if (result.hasErrors()) {
 			return new ModelAndView("admin/category/add");
 		}
-		Category entity = new Category();
+		CategoryEntity entity = new CategoryEntity();
 
 		BeanUtils.copyProperties(cateModel, entity);
 
@@ -73,10 +74,10 @@ public class CategoryController {
 	
 	@GetMapping("/edit/{id}")
 	public ModelAndView edit(ModelMap model, @PathVariable("id") Long categoryId) {
-		Optional<Category> optCate = categoryService.findById(categoryId);
+		Optional<CategoryEntity> optCate = categoryService.findById(categoryId);
 		CategoryModel cateModel = new CategoryModel();
 		if (optCate.isPresent()) {
-			Category entity = new Category();
+			CategoryEntity entity = new CategoryEntity();
 			
 			BeanUtils.copyProperties(entity, cateModel);
 			cateModel.setIsEdit(true);

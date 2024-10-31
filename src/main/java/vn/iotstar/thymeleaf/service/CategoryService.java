@@ -1,7 +1,6 @@
 package vn.iotstar.thymeleaf.service;
 
 import java.util.List;
-import java.util.Locale.Category;
 import java.util.Optional;
 
 import org.springframework.data.domain.Example;
@@ -15,28 +14,29 @@ public interface CategoryService {
 
 	void deleteAll();
 
-	void delete(Category entity);
+	void delete(CategoryEntity entity);
 
 	void deleteById(Long id);
 
 	long count();
 
-	Optional<Category> findById(Long id);
+	Optional<CategoryEntity> findById(Long id);
 
-	List<Category> findAllById(Iterable<Long> ids);
+	List<CategoryEntity> findAllById(Iterable<Long> ids);
 
-	List<Category> findAll();
+	List<CategoryEntity> findAll();
 
-	Page<Category> findAll(Pageable pageable);
+	Page<CategoryEntity> findAll(Pageable pageable);
 
-	List<Category> findAll(Sort sort);
+	List<CategoryEntity> findAll(Sort sort);
 
-	<S extends Category> Optional<S> findOne(Example<S> example);
+	<S extends CategoryEntity> Optional<S> findOne(Example<S> example);
 
-	<S extends Category> S save(S entity);
+	<S extends CategoryEntity> S save(S entity);
 
 	Page<CategoryEntity> findByNameContaining(String name, Pageable pagaable);
 
 	List<CategoryEntity> findByNameContaining(String name);
+
 
 }

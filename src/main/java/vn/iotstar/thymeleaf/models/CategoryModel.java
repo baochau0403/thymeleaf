@@ -9,17 +9,19 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 
-@NoArgsConstructor
 @AllArgsConstructor
+@NoArgsConstructor
 @Data
-public class CategoryModel implements Serializable {
 
-private static final long serialVersionUID = 1L;
-	
+public class CategoryModel implements Serializable{
+
+	private static final long serialVersionUID = 1L;
 	@Id
-	private Long id;
+	private Long categoryid;
 	@NotEmpty(message = "Không được bỏ rỗng")
 	private String name;
-	private Boolean isEdit= false;
-
+	private String images;
+	private int status;
+	
+	private Boolean isEdit=false;
 }

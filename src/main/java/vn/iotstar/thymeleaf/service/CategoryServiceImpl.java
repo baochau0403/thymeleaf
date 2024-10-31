@@ -1,7 +1,8 @@
 package vn.iotstar.thymeleaf.service;
 
+
+
 import java.util.List;
-import java.util.Locale.Category;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -9,10 +10,12 @@ import org.springframework.data.domain.Example;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
+import org.springframework.stereotype.Service;
 
-import vn.iotstar.thymeleaf.entity.CategoryEntity;
 import vn.iotstar.thymeleaf.repository.CategoryRepository;
+import vn.iotstar.thymeleaf.entity.CategoryEntity;
 
+@Service
 public class CategoryServiceImpl implements CategoryService {
 	@Autowired
 	CategoryRepository categoryRepository;
@@ -32,37 +35,37 @@ public class CategoryServiceImpl implements CategoryService {
 	}
 
 	@Override
-	public <S extends Category> S save(S entity) {
+	public <S extends CategoryEntity> S save(S entity) {
 		return categoryRepository.save(entity);
 	}
 
 	@Override
-	public <S extends Category> Optional<S> findOne(Example<S> example) {
+	public <S extends CategoryEntity> Optional<S> findOne(Example<S> example) {
 		return categoryRepository.findOne(example);
 	}
 
 	@Override
-	public List<Category> findAll(Sort sort) {
+	public List<CategoryEntity> findAll(Sort sort) {
 		return categoryRepository.findAll(sort);
 	}
 
 	@Override
-	public Page<Category> findAll(Pageable pageable) {
+	public Page<CategoryEntity> findAll(Pageable pageable) {
 		return categoryRepository.findAll(pageable);
 	}
 
 	@Override
-	public List<Category> findAll() {
+	public List<CategoryEntity> findAll() {
 		return categoryRepository.findAll();
 	}
 
 	@Override
-	public List<Category> findAllById(Iterable<Long> ids) {
+	public List<CategoryEntity> findAllById(Iterable<Long> ids) {
 		return categoryRepository.findAllById(ids);
 	}
 
 	@Override
-	public Optional<Category> findById(Long id) {
+	public Optional<CategoryEntity> findById(Long id) {
 		return categoryRepository.findById(id);
 	}
 
@@ -77,7 +80,7 @@ public class CategoryServiceImpl implements CategoryService {
 	}
 
 	@Override
-	public void delete(Category entity) {
+	public void delete(CategoryEntity entity) {
 		categoryRepository.delete(entity);
 	}
 
@@ -85,6 +88,9 @@ public class CategoryServiceImpl implements CategoryService {
 	public void deleteAll() {
 		categoryRepository.deleteAll();
 	}
+
+
+
 	
 	
 
